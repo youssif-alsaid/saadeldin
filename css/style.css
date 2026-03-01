@@ -1325,8 +1325,8 @@ height: 100%;
 }
 
 .course-subscription .check:hover {
-  background: var(--secondry-color);
-  /* color: var(--five-color); */
+  background: var(--third-color);
+  color: var(--secondry-color);
 }
 
 .course-subscription .subscription {
