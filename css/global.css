@@ -8,9 +8,9 @@
   );
   
   --secondry-color-gradient: linear-gradient(
-    to right,
-    #e9bf24 70%
-    #e3a75b,
+    to left,
+    #491f07,
+    #d1c1b1 70%
     
     
   );
@@ -21,10 +21,10 @@
   --white-color: #ffffff;
   --black-color: #000000;
 
-  --main-color: #491f07;
-  --secondry-color: #d47903;
-  --third-color: #491f07;
-  --five-color: #B7B89F;
+  --main-color: #491F07;
+  --secondry-color: #D1C1B1;
+  --third-color: #86450D;
+  --five-color: #D47903;
   --light-color: #d1c1b1;
   --gray-color: #491f07;
   --shdow-dark-color: rgb(255, 255, 255,0.4);
@@ -45,7 +45,7 @@
 }
 
 @font-face {
-  font-family: "a-arslan-wessam-b";
+  font-family: "arslan-b";
   src: url("../fonts/a-arslan-wessam-b.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
@@ -67,13 +67,13 @@
   padding: 0;
   box-sizing: border-box;
   transition: 0.3s;
-  font-family: "barada-reqa", "a-arslan-wessam-b", sans-serif !important;
+  font-family: "cairo";
 }
 
 body {
   user-select: none;
   cursor: default;
-  font-family: "barada-reqa", "a-arslan-wessam-b", sans-serif !important;
+  font-family: "cairo";
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   background-color: #fff;
@@ -90,7 +90,7 @@ body > section.courses-home {
 }
 
 body::after {
-  background-image: url(../media/img/bg-header.webp);
+  /* background-image: url(../media/img/bg-header.webp); */
   background-size: cover;
   background-position: center;
   opacity:0.23;
@@ -194,114 +194,6 @@ body::-webkit-scrollbar {
     color: var(--yellow-color);
 }
 
-.card-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  width: 100%;
-}
-
-.card-number-top {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  color: #d37e26;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px; 
-  font-family: sans-serif, "barada-reqa";
-}
-
-.card-number-top::before,
-.card-number-top::after {
-  content: "";
-  display: inline-block;
-  width: 70px; 
-  height: 3px; 
-  background-color: #d37e26;
-}
-
-/* =========================================
-   تنسيق الكارت الأساسي
-========================================= */
-.feature-card-box {
-  width: 348px; 
-  max-width: 100%;
-  height: 250px; 
-  
-  background-color: var(--main-color);
-  border-radius: 15px; 
-  padding: 20px 25px;
-  text-align: center; 
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-
-.feature-card-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; 
-
-  background-image: url('../media/img/pattern.webp'); 
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: multiply; 
-  background-color: inherit; 
-  opacity: 0.40; 
-}
-
-.feature-card-box .card-title {
-  font-family: "barada-reqa", sans-serif;
-  font-size: 45px;
-  font-weight: 500;
-  color: #bda998;
-  margin-bottom: 15px;
-  text-align: center; 
-}
-
-.feature-card-box .card-desc {
-  font-family: "barada-reqa", sans-serif;
-  font-size: 25px;
-  line-height: 2;
-  color: #f1f1f1;
-  margin: 0;
-  text-align: right; 
-}
-
-
-
-.dark .feature-card-box {
-  background-color:var(--light-color);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.03);
-}
-
-
-.dark .feature-card-box .card-title {
-  color: var(--main-color); 
-}
-
-.dark .feature-card-box .card-desc {
-  color:#8b4d18; 
-}
-
-
-.dark .card-number-top {
-  color: #e89b47;
-}
-
-.dark .card-number-top::before,
-.dark .card-number-top::after {
-  background-color: #e89b47;
-}
 
 /* From Uiverse.io by mobinkakei */
 .loader {
@@ -402,7 +294,7 @@ body::-webkit-scrollbar {
 #toggle {
   width: 73px;
   height: 36px;
-  background: var(--secondry-color-gradient);
+  background: var(--main-color-gradient);
   box-shadow: inset 0 1px 6px 4px rgba(12, 12, 12, 0.2);
   display: flex;
   align-items: center;
@@ -412,6 +304,8 @@ body::-webkit-scrollbar {
   position: relative;
   z-index: 99;
 }
+
+
 
 
 .changer span {
@@ -461,7 +355,7 @@ span svg {
 /* dark */
 
 #toggle.change {
-  background: var(--main-color-gradient);
+  background: var(--secondry-color-gradient);
 }
 
 #toggle.change #shape{
@@ -653,23 +547,27 @@ span.change {
 }
 
 .img-footer {
-  width: 150px;
+  width: 250px;
   display: block;
   margin: 20px auto 0px auto;
 }
 
 .coat-footer {
-  font-family: "barada-reqa";
+  font-family: "arslan-b";
   font-weight: normal;
   text-align: center;
   color: var(--light-color);
-  font-size: 30px;
+  font-size: 40px;
 }
 
 @media only screen and (max-width: 575px) {
-  .coat-footer {
-    font-size: 20px;
+  .img-footer {
+    width: 200px;
   }
+  .coat-footer {
+    /* font-size: 20px; */
+  }
+
 }
 
 .coat-footer span {
@@ -693,23 +591,30 @@ span.change {
   margin: 30px 0px;
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+
+  gap: 5px;
 }
 
 .icon p {
   margin: 0;
-  font-family: "barada-reqa";
-  font-size: 30px;
+  font-family: "arslan-b";
+  font-size: 40px;
   color: var(--light-color);
 }
 
 @media only screen and (max-width: 575px) {
  
 .icon p {
-    font-size: 20px;
+    /* font-size: 30px; */
   }
+}
+
+.icon div {
+  display: flex;
+  gap: 20px;
 }
 
 .footer-home .icon a img {
@@ -721,12 +626,12 @@ span.change {
 
 @media only screen and (max-width: 575px) {
   .footer-home .icon a img {
-    width: 50px;
+    width: 40px;
   }
 }
 
 .footer-home .coat {
-  font-family: "barada-reqa";
+  font-family: "arslan-b";
   font-weight: bold;
   text-align: center;
   color: #fff;
@@ -738,9 +643,9 @@ span.change {
 }
 
 .copy-right {
-  font-family: "barada-reqa";
-  color: var(--secondry-color);
-  background: var(--gray-color);
+  font-family: "cairo";
+  color: var(--main-color);
+  background: var(--secondry-color);
   letter-spacing: 1px;
   font-weight: bolder;
   text-align: center;
@@ -762,11 +667,11 @@ span.change {
 }
 
 .footer-home .copy-right .ros {
-  color: var(--black-color);
+  color: var(--third-color);
   text-decoration: none;
 }
 .footer-home .copy-right .ros:hover {
-  color: var(--white-color);
+  color: var(--main-color);
   transform: scale(1.1);
 }
 

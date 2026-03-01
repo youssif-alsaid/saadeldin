@@ -14,7 +14,7 @@
   position: relative !important;
   font-family: "barada-reqa";
   font-weight: 500;
-  font-size: 75px;
+  font-size: 70px;
   text-align: center;
   color: var(--main-color);
   margin: 0;
@@ -23,7 +23,7 @@
   border-radius: 15px;
   z-index: 1;
   width: fit-content;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 
@@ -31,11 +31,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px; 
-  font-family: "barada-reqa";
-  color: var(--secondry-color);
-  font-size: 20px; 
-  font-weight: bold;
+  gap: 5px; 
+  font-family: "arslan-b";
+  color: var(--third-color);
+  font-size: 29px; 
+  line-height: 0;
+}
+
+.speacial-heading span.dark {
+  color: var(--five-color);
 }
 
 
@@ -43,16 +47,16 @@
 .speacial-heading span::after {
   content: "";
   display: inline-block;
-  width: 60px; 
+  width: 40px; 
   height: 2px; 
-  background: var(--secondry-color); 
+  background: var(--five-color); 
   border-radius: 20px;
 }
 
 
 .speacial-heading.dark span::before,
 .speacial-heading.dark span::after {
-  background: var(--secondry-color);
+  background: var(--third-color);
 }
 .speacial-heading h1.dark {
   color: var(--light-color);
@@ -161,7 +165,7 @@
 }
 
 .nav-content.dark {
-  background: var(--third-color);
+  background: var(--main-color);
   box-shadow: 1px 0px 0px 0px var(--shdow-dark-color);
 }
 
@@ -221,9 +225,8 @@
 }
 
 .logo img {
-  width: 100px;
-  border: none !important;
-  outline: none !important;
+  width: 80px;
+
 }
 
 .logo img.dark {
@@ -253,13 +256,14 @@
     display: block;
     font-size: 36px;
     color: var(--main-color);
+
     cursor: pointer;
-    transition: color 0.3s ease !important;
+    /* transition: color 0.3s ease !important; */
   }
+.bars .dark {
+  color: var(--white-color);
+}
   
-  .bars.dark {
-    color: var(--white-color) !important;
-  }
 
   .links {
     flex-direction: column;
@@ -305,6 +309,11 @@
   --clr-alpha: var(--light-color);
   animation: spinner 3s infinite linear;
   transform-style: preserve-3d;
+}
+
+.spinner .dark {
+    --clr: var(--third-color);
+  --clr-alpha: var(--secondry-color);
 }
 
 .spinner > div {
@@ -386,9 +395,9 @@
   text-decoration: none !important;
   background: var(--main-color);
   color: var(--white-color);
-  padding: 5px 15px;
-  border-radius: 30px;
-  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 20px;
   display: inline-flex;
   align-items: center;
   transition: all linear 0.2s;
@@ -402,8 +411,8 @@
 }
 
 .create-account.dark {
-  background: var(--white-color);
-  color: var(--main-color);
+  background: var(--five-color);
+  color: var(--white-color);
   
 }
 
@@ -427,9 +436,9 @@
   text-decoration: none !important;
   background: var(--secondry-color);
   color: var(--gray-color);
-  padding: 5px 15px;
-  border-radius: 30px;
-  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 20px;
   display: inline-flex;
   align-items: center;
   transition: all linear 0.2s;
@@ -440,7 +449,10 @@
 .login-button.dark {
   /* background: var(--third-color);
   color: var(--white-color); */
+}
 
+.login-button img {
+  width: 22px;
 }
 
 
@@ -654,7 +666,7 @@
 }
 
 .header-home h3.dark {
-  color: var(--light-color);
+  color: var(--secondry-color);
 
 }
 
@@ -689,23 +701,24 @@
 }
 
 .header-home p {
-  font-family: "barada-reqa";
-   color: var(--main-color);
+  font-family: "arslan-b";
+   color: var(--black-color);
   font-size: 40px;
   font-weight: 500;
   text-align: right;
 }
 
 .header-home p.dark {
-  color: var(--secondry-color);
+  color: var(--five-color);
 }
 
 .header-home p span {
-  color: var(--secondry-color);
+  font-family: "arslan-b";
+  color: var(--five-color);
 }
 
 .header-home p span.dark {
-  color: var(--light-color);
+  color: var(--secondry-color);
 }
 
 @media only screen and (max-width: 991px) {
@@ -728,24 +741,14 @@
 .create-new-account {
   font-family: "barada-reqa", sans-serif;
   font-size: 25px;
-  font-weight:400 ;
   text-decoration: none !important;
-  background-color: #d5c4b3; 
-  color: #3b1904;
-  padding: 8px 35px;
+  background-color: var(--secondry-color); 
+  color: var(--main-color);
+  border-bottom: var(--main-color) 3px solid;
+  padding: 0px 20px;
   border-radius: 12px;
-  border: none; 
-  box-shadow: 1px 4px 0px #3b1904; 
-  font-size: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  transition: all 0.1s linear;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
   cursor: pointer;
+  transition: all 0.1s linear;
 }
 
 .create-new-account:hover {
@@ -761,13 +764,13 @@
 
 
 .create-new-account.dark {
-  background-color: var(--secondry-color); 
-  color: #d5c4b3;
-  box-shadow: 1px 4px 0px #d5c4b3;
+  background-color: var(--third-color); 
+  color: var(--white-color);
+  border-bottom-color: var(--secondry-color);
 }
 
 .main-img-home img {
-  width: 500px;
+  /* width: 500px; */
   border-radius: 15px;
 }
 
@@ -778,19 +781,19 @@
     align-items: center;
   }
   .header-home .main-img-home img {
-    /* width: 400px; */
+    width: 370px;
   }
 }
 
 @media only screen and (max-width: 450px){
     .header-home .main-img-home img {
-    width: 350px;
+    width: 320px;
   }
 }
 
 @media only screen and (max-width: 370px){
     .header-home .main-img-home img {
-    width: 300px;
+    width: 280px;
   }
 }
 
@@ -798,50 +801,123 @@
 
 /* Strat about hom section */
 
-/*  */
 
-.about-content {
-  background: var(--white-color);
-  border-radius: 20px;
-  padding: 0;
-  box-shadow: 0px 0px 12px 9px rgb(0, 0, 0 ,0.25);
-  padding: 10px;
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  /* gap: 10px; */
+  width: 100%;
+  margin-bottom: 40px;
 }
 
-@media only screen and (max-width: 575px){
-    .about-content {
-    margin-left: 25px;
-    margin-right: 25px;
-  }
+.card-number-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: var(--third-color);
+  margin-bottom: 10px; 
 }
 
-.card-about {
-  background: var(--third-color);
-  border-radius: 20px;
-  margin: 10px;
-  padding: 10px;
+.card-number-top span {
+  font-family: "arslan-b" ;
+  font-size: 50px;
+  line-height: 0;
+
 }
 
-.card-about h3 {
-  font-family: "barada-reqa";
+.card-number-top::before,
+.card-number-top::after {
+  content: "";
+  display: inline-block;
+  width: 60px; 
+  height: 3px; 
+  background-color: #d37e26;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   تنسيق الكارت الأساسي
+========================================= */
+.feature-card-box {
+  width: 348px; 
+  max-width: 100%;
+  height: 250px; 
+
+  background-color: var(--main-color);
+  border-radius: 40px; 
+  padding: 20px 25px;
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+.feature-card-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+
+  background-image: url('../media/img/pattern.webp'); 
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply; 
+  background-color: inherit; 
+  opacity: 0.25; 
+}
+
+.feature-card-box .card-title {
+  font-family: "barada-reqa", sans-serif;
+  font-size: 45px;
+  font-weight: 500;
+  color: #bda998;
+  margin-bottom: 15px;
+  text-align: center; 
+}
+
+.feature-card-box .card-desc {
+  font-family: "arslan-b";
   font-size: 30px;
-  text-align: center;
-  color: var(--white-color);
-}
-
-.card-about p {
-  font-family: "barada-reqa";
-  font-size: 19px;
-  text-align: center;
-  color: var(--black-color);
+  /* line-height: 1.5; */
+  color: #fff;
   margin: 0;
-}
-
-.about-img {
-  width: 300px;
+  text-align: right; 
 }
 
 
+
+.dark .feature-card-box {
+  background-color:var(--secondry-color);
+  /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); */
+}
+
+
+.dark .feature-card-box .card-title {
+  color: var(--main-color); 
+}
+
+.dark .feature-card-box .card-desc {
+  color:#8b4d18; 
+}
+
+
+.dark .card-number-top {
+  color: #e89b47;
+}
+
+.dark .card-number-top::before,
+.dark .card-number-top::after {
+  background-color: #e89b47;
+}
 
 /* End about hom section */
 
@@ -857,7 +933,7 @@
   padding-bottom: 0;
   text-align: center;
   margin: 5px auto 30px auto; 
-  border-radius: 20px;
+  border-radius: 40px;
   width: 95%;
   background-color: var(--main-color);
   position: relative;
@@ -895,18 +971,26 @@
   color: var(--light-color);
 }
 .card-year p {
-  font-size: 35px;
+  font-family: "arslan-b";
+  line-height: 1;
+  font-size: 40px;
   color: var(--light-color);
-  
 }
+
+.card-year p.dark {
+  color: var(--main-color);
+}
+
+
+
 .card-year a:hover .check-courses{
-  color: var(--secondry-color) !important ;
+  color: var(--five-color) !important ;
 
 }
 
 .img-card-year {
   position: relative;
-  border-radius: 15px;
+  border-radius: 30px;
   object-fit: cover;
   width: 100%;
     /* border: 10px solid var(--third-color); */
@@ -1062,7 +1146,7 @@ height: 100%;
 }
 
 .content-course h4 {
-  font-family: sans-serif;
+  font-family: "barada-reqa";
   color: var(--light-color);
   text-align: center;
   font-size: 25px;
@@ -1074,7 +1158,7 @@ height: 100%;
   position: relative;
   width: calc(100% + 30px);
   left: 15px;
-  font-family: "barada-reqa";
+  font-family: "arslan-b";
   text-align: center;
   background: var(--light-color);
   padding: 10px 5px;
@@ -1123,7 +1207,7 @@ height: 100%;
 }
 
 .data-course .price {
-  font-family: "barada-reqa";
+  font-family: "cairo";
   font-weight: 500;
   display: flex;
   justify-content: space-between;
@@ -1139,29 +1223,35 @@ height: 100%;
 }
 
 .data-course .price span {
-  font-family: "barada-reqa";
+  font-family: "cairo";
   font-size: 16px;
   color: var(--black-color);
 }
 
 .data-course .price-free {
-  font-family: "barada-reqa";
+  font-family: "cairo";
+  font-weight: 800;
   display: flex;
   justify-content: center;
   gap: 4px;
   align-items: center;
-  background: var(--light-color);
+  background: var(--five-color);
   font-size: 14px;
-  color: var(--main-color);
+  color: var(--black-color);
   padding: 5px 7px;
   border-radius: 10px;
+}
+
+.data-course .price-free.dark {
+  background: var(--third-color);
+  color: var(--secondry-color);
 }
 
 .data-course .price-del {
   display: flex;
   justify-content: space-between;
   gap: 4px;
-  font-family: "barada-reqa";
+  font-family: "cairo";
   padding: 4px 6px;
   background: var(--white-color);
   border-radius: 10px;
@@ -1170,7 +1260,7 @@ height: 100%;
 }
 
 .data-course .price-del span {
-  font-family: "barada-reqa";
+  font-family: "cairo";
   background: var(--main-color);
   color: var(--white-color);
   text-decoration: line-through;
@@ -1202,7 +1292,12 @@ height: 100%;
 }
 
 .info-course p svg {
-  color: var(--black-color);
+  color: var(--secondry-color);
+}
+
+
+.info-course p svg .dark {
+  color: var(--main-color);
 }
 
 .course-subscription {

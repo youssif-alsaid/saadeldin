@@ -1,20 +1,21 @@
 // دالة fetch مخصصة لإرسال tenant id تلقائيًا
-window.tenantFetch = function(url, options = {}) {
+window.tenantFetch = function (url, options = {}) {
   const TENANT_ID = 1;
   options = options || {};
   options.headers = options.headers || {};
   // دعم headers كـ Headers أو كائن عادي
   if (options.headers instanceof Headers) {
-    options.headers.append('X-Tenant-ID', TENANT_ID);
+    options.headers.append("X-Tenant-ID", TENANT_ID);
   } else {
-    options.headers['X-Tenant-ID'] = TENANT_ID;
+    options.headers["X-Tenant-ID"] = TENANT_ID;
   }
   return fetch(url, options);
 };
 function auth() {
   document.addEventListener("DOMContentLoaded", function () {
     const path = window.location.pathname;
-    const isAuthPage = path.includes("login") || path.includes("create-account");
+    const isAuthPage =
+      path.includes("login") || path.includes("create-account");
 
     // ✅ نحاول قراءة بيانات الطالب
     let studentData = null;
@@ -33,7 +34,9 @@ function auth() {
       "courses",
       "analysis",
     ];
-    const isRestrictedPage = restrictedPages.some((page) => path.includes(page));
+    const isRestrictedPage = restrictedPages.some((page) =>
+      path.includes(page),
+    );
     if (!isLoggedIn && isRestrictedPage) {
       window.location.href = "login.html";
       return;
@@ -95,8 +98,7 @@ function auth() {
           `;
       setupUserMenuDropdown();
       initLogout();
-    }
-    else {
+    } else {
       container.innerHTML = `
                       <div class="parent-spinner">
                   <div class="spinner">
@@ -121,27 +123,25 @@ function auth() {
                       class="create-account"
                     >
 
-                <img src="media/img/create-icon.svg" alt="create icon" style="width: 35px; height: 35px" />
+                <img src="media/img/create-icon.svg" alt="create icon" />
                       
                       انشئ حسابك
                     </a>
                   </li>
                   <li>
                     <a href="login.html" class="login-button">
-                <img src="media/img/login-icon.svg" alt="login icon" style="width: 35px; height: 35px" />
+                <img src="media/img/login-icon.svg" alt="login icon" />
 
                       سجل دخولك
                     </a>
                   </li>
                 </ul>
-      `
+      `;
       initMenuToggle();
       createAccountIcon();
       loginIcon();
     }
-
   });
-
 }
 
 auth();
@@ -166,19 +166,23 @@ function initDarkMode() {
   const bars = document.querySelector(".bars");
 
   if (!toggle) return;
+  let lightMode = JSON.parse(localStorage.getItem("lightMode"));
 
-  let lightMode = JSON.parse(localStorage.getItem("lightMode")) || false;
-
+  if (lightMode === null) {
+    lightMode = true; // الوضع الافتراضي لايت
+  }
   const applyMode = () => {
     if (lightMode) {
       Changer.forEach((el) => el.classList.add("change"));
       // إزالة الدارك من كل العناصر
-      document.querySelectorAll("*").forEach(el => el.classList.remove("dark"));
+      document
+        .querySelectorAll("*")
+        .forEach((el) => el.classList.remove("dark"));
       if (bars) bars.classList.remove("dark");
     } else {
       Changer.forEach((el) => el.classList.remove("change"));
       // إضافة الدارك لكل العناصر
-      document.querySelectorAll("*").forEach(el => el.classList.add("dark"));
+      document.querySelectorAll("*").forEach((el) => el.classList.add("dark"));
       if (bars) bars.classList.add("dark");
     }
   };
@@ -190,6 +194,28 @@ function initDarkMode() {
     localStorage.setItem("lightMode", JSON.stringify(lightMode));
     applyMode();
   });
+
+    // 👇 ده الجزء المهم
+  const observer = new MutationObserver((mutations) => {
+    if (!lightMode) {
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeType === 1) {
+            node.classList.add("dark");
+            node.querySelectorAll("*").forEach(el => {
+              el.classList.add("dark");
+            });
+          }
+        });
+      });
+    }
+  });
+
+    observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
 }
 
 // End dark mode
@@ -247,14 +273,14 @@ function createAccountIcon() {
     btnLordIconCreate.addEventListener("mouseenter", () => {
       iconCreateButton.setAttribute(
         "colors",
-        "primary:#F3F3F3,secondary:#FF9D00"
+        "primary:#F3F3F3,secondary:#FF9D00",
       );
     });
 
     btnLordIconCreate.addEventListener("mouseleave", () => {
       iconCreateButton.setAttribute(
         "colors",
-        "primary:#F3F3F3,secondary:#FF9D00"
+        "primary:#F3F3F3,secondary:#FF9D00",
       );
     });
   }
@@ -266,12 +292,17 @@ function loginIcon() {
 
   if (btnLordIconLogin && iconLoginButton) {
     btnLordIconLogin.addEventListener("mouseenter", () => {
-      iconLoginButton.setAttribute("colors", "primary:#F3F3F3,secondary:#FFCF71");
-
+      iconLoginButton.setAttribute(
+        "colors",
+        "primary:#F3F3F3,secondary:#FFCF71",
+      );
     });
 
     btnLordIconLogin.addEventListener("mouseleave", () => {
-      iconLoginButton.setAttribute("colors", "primary:#B6771D,secondary:#F3F3F3");
+      iconLoginButton.setAttribute(
+        "colors",
+        "primary:#B6771D,secondary:#F3F3F3",
+      );
     });
   }
 }
@@ -284,7 +315,7 @@ function createNewAccount() {
     btnLordIconCreate.addEventListener("mouseenter", () => {
       iconCreateButton.setAttribute(
         "colors",
-        "primary:#4B5563,secondary:#810000"
+        "primary:#4B5563,secondary:#810000",
       );
       console.log("hovered create");
     });
@@ -292,7 +323,7 @@ function createNewAccount() {
     btnLordIconCreate.addEventListener("mouseleave", () => {
       iconCreateButton.setAttribute(
         "colors",
-        "primary:#1B1717,secondary:#f3f3f3"
+        "primary:#1B1717,secondary:#f3f3f3",
       );
       console.log("leave create");
     });
@@ -322,8 +353,6 @@ function setupUserMenuDropdown() {
     userMenu.classList.remove("open");
   });
 }
-
-
 
 function checkLoginStatus() {
   const userMenu = document.querySelector(".user-menu");
@@ -361,21 +390,18 @@ function initLogout() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const studentData = JSON.parse(
-          localStorage.getItem("studentData") || "{}"
+          localStorage.getItem("studentData") || "{}",
         );
         const token = studentData.api_token;
 
         try {
-          await fetch(
-            "https://api-platfrom.ro-s.net/api/student/logout",
-            {
-              method: "POST",
-              headers: {
-                Authorization: `Bearer ${token}`,
-                Accept: "application/json",
-              },
-            }
-          );
+          await fetch("https://api-platfrom.ro-s.net/api/student/logout", {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              Accept: "application/json",
+            },
+          });
         } catch (err) {
           console.error("Logout API error", err);
         }
@@ -409,7 +435,6 @@ function loadSweetAlert(callback) {
 }
 // loadSweetAlert();
 
-
 // function speacialHeading() {
 //   const headings = document.querySelectorAll(".speacial-heading"); // كل الـ headings
 
@@ -427,7 +452,6 @@ function loadSweetAlert(callback) {
 
 // window.addEventListener("load", speacialHeading);
 // window.addEventListener("resize", speacialHeading); // يتظبط مع تغيير حجم الصفحة
-
 
 initDarkMode();
 initNavbarScroll();

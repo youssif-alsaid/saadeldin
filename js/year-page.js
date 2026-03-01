@@ -113,6 +113,7 @@ function updateHeader(gradeName) {
   if (gradeName) acadymicYear = gradeName;
   const cartonaHeading = `
                 <h1>${acadymicYear}</h1>
+                <span>الخال</span>
   `;
   speacialHeading.innerHTML = cartonaHeading;
 }
