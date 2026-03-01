@@ -653,6 +653,10 @@
   margin-bottom: 20px;
 }
 
+.main-img-home img.dark {
+  content: url(../media/img/main-img-dark.webp);
+}
+
 .header-home h3 {
   font-family: "barada-reqa";
   color: var(--main-color);
